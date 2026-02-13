@@ -233,6 +233,92 @@
         .corner-bl { bottom: 12px; left: 12px; }
         .corner-br { bottom: 12px; right: 12px; }
 
+        /* ============ SISTER PHOTO SECTION ============ */
+        .photo-section {
+            margin: 40px 0;
+            animation: fade-in-up 1s ease-out 0.5s both;
+            text-align: center;
+        }
+
+        .photo-frame {
+            position: relative;
+            display: inline-block;
+            padding: 15px;
+            background: linear-gradient(145deg, rgba(255,105,180,0.2), rgba(168,85,247,0.2));
+            border-radius: 25px;
+            border: 3px solid rgba(255,105,180,0.4);
+            box-shadow: 
+                0 15px 40px rgba(0,0,0,0.4),
+                0 0 60px rgba(255,105,180,0.2),
+                inset 0 0 30px rgba(255,105,180,0.1);
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #ff6b6b, #ff69b4, #a855f7, #ffd700, #ff69b4);
+            border-radius: 27px;
+            z-index: -1;
+            animation: photo-border-glow 4s linear infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes photo-border-glow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .sister-photo {
+            width: clamp(200px, 40vw, 300px);
+            height: clamp(200px, 40vw, 300px);
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-frame:hover .sister-photo {
+            transform: scale(1.03);
+        }
+
+        .photo-caption {
+            margin-top: 20px;
+            color: #ffffff;
+            font-size: 1.3rem;
+            text-shadow: 0 0 15px rgba(255,105,180,0.6);
+        }
+
+        .photo-caption span {
+            background: linear-gradient(135deg, #ffd700, #ffaa00, #fff176);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        /* Photo corner decorations */
+        .photo-deco {
+            position: absolute;
+            font-size: 25px;
+            filter: drop-shadow(0 0 8px rgba(255,105,180,0.6));
+            animation: deco-pulse 2s ease-in-out infinite;
+        }
+
+        .photo-deco-tl { top: -12px; left: -12px; }
+        .photo-deco-tr { top: -12px; right: -12px; animation-delay: 0.5s; }
+        .photo-deco-bl { bottom: -12px; left: -12px; animation-delay: 1s; }
+        .photo-deco-br { bottom: -12px; right: -12px; animation-delay: 1.5s; }
+
+        @keyframes deco-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
         /* ============ INTERACTIVE LOVE JAR ============ */
         .love-jar-section {
             margin-top: 40px;
@@ -1001,7 +1087,20 @@
                 YAY! 🎉
                 <span class="name-celebrate">Sakshi Said Yes!</span>
             </h1>
-            <p class="sub-message">You just made me the happiest person ever! 💕</p>
+            <p class="sub-message">Best sister ever! 💕</p>
+        </div>
+
+        <!-- Sister Photo Section -->
+        <div class="photo-section">
+            <div class="photo-frame">
+                <span class="photo-deco photo-deco-tl">💖</span>
+                <span class="photo-deco photo-deco-tr">✨</span>
+                <span class="photo-deco photo-deco-bl">✨</span>
+                <span class="photo-deco photo-deco-br">💖</span>
+                <!-- Replace 'sakshi.jpg' with your sister's actual photo filename -->
+                <img src="sakshi.jpg" alt="Sakshi" class="sister-photo">
+            </div>
+            <p class="photo-caption">My amazing sister, <span>Sakshi</span> 💕</p>
         </div>
 
         <div class="love-card">
@@ -1010,16 +1109,16 @@
             <span class="corner-deco corner-bl">✨</span>
             <span class="corner-deco corner-br">✨</span>
             
-            <h2 class="love-title">💌 My Dearest Sakshi 💌</h2>
+            <h2 class="love-title">💌 Dear Sakshi 💌</h2>
             
             <div class="love-text">
-                <p>From the moment I met you, I knew you were special. Every day with you feels like a beautiful adventure, and I can't imagine my life without your smile, your laugh, and your love.</p>
+                <p>Hey sis! I know I don't say this often, but you're literally the best sister anyone could ask for. Thanks for always being there, even when I'm being annoying lol.</p>
                 
-                <p>You make every ordinary moment <span class="highlight">extraordinary</span>, and I fall more in love with you with each passing day. Thank you for being you – my best friend, my confidant, and my forever Valentine. 💫</p>
+                <p>You make everything <span class="highlight">more fun</span>, and honestly I don't know what I'd do without you. Thanks for putting up with me! 😄</p>
                 
-                <p>Here's to us, to love, and to countless beautiful memories together! 💕</p>
+                <p>Here's to more memories, more laughs, and more sibling moments! 💕</p>
                 
-                <p class="signature">Forever & Always Yours, ❤️<br>Your Valentine</p>
+                <p class="signature">Love you always! ❤️<br>Your Favorite Sibling 😜</p>
             </div>
         </div>
 
@@ -1031,7 +1130,7 @@
 
         <!-- Love Jar Section -->
         <div class="love-jar-section">
-            <h3 class="love-jar-title">✨ Tap the jar to see why I love you! ✨</h3>
+            <h3 class="love-jar-title">✨ Tap the jar to see why you're awesome! ✨</h3>
             <div class="love-jar-container">
                 <div class="love-jar" onclick="handleInteraction(event, 'jar')">🏺</div>
             </div>
@@ -1152,7 +1251,7 @@
         <!-- Replace 'hug.gif' with your actual GIF filename -->
         <img src="bear-hug2.webp" alt="Virtual Hug" class="hug-gif">
     </div>
-    <div class="hug-message" id="hugMessage">Sending you the biggest virtual hug, Sakshi! 🤗💖</div>
+    <div class="hug-message" id="hugMessage">Sending you a big virtual hug, sis! 🤗💖</div>
 
     <!-- Background Music -->
     <audio id="bgMusic" loop preload="metadata" crossorigin="anonymous">
@@ -1339,21 +1438,21 @@
 
         // ========== LOVE JAR ==========
         const loveReasons = [
-            { emoji: "😊", text: "I love your beautiful smile that lights up my entire world." },
-            { emoji: "💭", text: "I love how you're always on my mind, from morning till night." },
-            { emoji: "🎵", text: "I love your laugh - it's my favorite sound in the universe." },
-            { emoji: "🤗", text: "I love how safe and warm I feel when I'm with you." },
-            { emoji: "✨", text: "I love how you make ordinary moments feel magical." },
-            { emoji: "💪", text: "I love how you support me and believe in me always." },
-            { emoji: "🦋", text: "I love the butterflies I still get when I see you." },
-            { emoji: "🌟", text: "I love how you inspire me to be a better person every day." },
-            { emoji: "🥰", text: "I love the way you look at me - like I'm your whole world." },
-            { emoji: "💕", text: "I love that you chose me, and I'd choose you in every lifetime." },
-            { emoji: "🌈", text: "I love how you bring color and joy into my life." },
-            { emoji: "💖", text: "I love you simply because you're YOU, Sakshi." },
-            { emoji: "🏠", text: "I love how anywhere feels like home when I'm with you." },
-            { emoji: "🤝", text: "I love that you're my best friend and my soulmate." },
-            { emoji: "💫", text: "I love every little thing about you - the list is endless!" }
+            { emoji: "😊", text: "You always know how to make me laugh, even on bad days." },
+            { emoji: "💪", text: "You've got my back no matter what. Best teammate ever!" },
+            { emoji: "🎉", text: "You make every family function actually fun (your presence)." },
+            { emoji: "🤗", text: "You give the best advice (even when I don't ask for it lol)." },
+            { emoji: "✨", text: "You're way cooler than you think you are." },
+            { emoji: "🌟", text: "You inspire me to be better, seriously." },
+            { emoji: "🦋", text: "You're not just my sister, you're my friend." },
+            { emoji: "🌸", text: "Thanks for sharing your snacks with me (sometimes)." },
+            { emoji: "😂", text: "Our inside jokes are the best. No one else gets them." },
+            { emoji: "💕", text: "I'm lucky to have you as my sister, Sakshi!" },
+            { emoji: "🏠", text: "Home doesn't feel the same without you around." },
+            { emoji: "🤝", text: "Partners in crime since day one!" },
+            { emoji: "💫", text: "You always believe in me. That means everything." },
+            { emoji: "💖", text: "You're annoying sometimes but I still love you lol." },
+            { emoji: "🌈", text: "Life is just better with you in it!" }
         ];
 
         let currentReasonIndex = 0;
@@ -1482,7 +1581,7 @@
             
             setTimeout(() => {
                 infinityContainer.classList.add('show');
-                text.textContent = '∞ Infinite Love for Sakshi ∞';
+                text.textContent = '∞ Infinite Love for my Sis ∞';
                 text.classList.add('infinity-text');
             }, 300);
             
@@ -1785,7 +1884,7 @@
         init();
 
         // ========== CONSOLE EASTER EGGS ==========
-        console.log('%c💕 Made with infinite love for Sakshi! 💕', 
+        console.log('%c💕 Happy Valentine\'s Day, Sakshi! 💕', 
             'font-size: 24px; color: #ff69b4; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
         console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 
             'color: #a855f7;');
